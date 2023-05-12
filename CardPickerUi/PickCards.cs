@@ -2,26 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PickACard
+namespace CardPickerUi
 {
 
     public static class PickCards
     {
         static Random random = new Random();
-        public static void PrintNumber(int card)
+        public static string[] PrintNumber(int numberOfCards)
         {
-            List<int> numbers = new List<int>();
-            while (numbers.Count() < card)
+            string[] pickedCards = new string[numberOfCards];
+            for (int i = 0; i < numberOfCards; i++)
             {
-                numbers.Add(card);
+                pickedCards[i] = PickANumber() + PickASuite();
             }
-            foreach (int number in numbers)
-            {
-                Console.WriteLine($"Picked {PickANumber(number)}{PickASuite(number)}");
-            }
+
+            return pickedCards;
         }
 
-        private static string PickANumber(int number)
+        private static string PickANumber()
         {
             int digit = random.Next(1, 14);
             if (digit == 1) { return "Aces"; }
@@ -31,7 +29,7 @@ namespace PickACard
             else return digit.ToString();
         }
 
-        private static string PickASuite(int number)
+        private static string PickASuite()
         {
             int digit = random.Next(1, 5);
             if (digit == 1) return " of Hearts.";

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CardPickerUI.Properties
+namespace CardPickerUi.Properties
 {
 
 

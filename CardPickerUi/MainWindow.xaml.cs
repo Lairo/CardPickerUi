@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CardPickerUI
+namespace CardPickerUi
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +23,16 @@ namespace CardPickerUI
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string[] pickedCards = PickCards.PrintNumber((int)numberOfCards.Value);
+            listOfCards.Items.Clear();
+            foreach (string card in pickedCards)
+            {
+                listOfCards.Items.Add(card);
+            }
         }
     }
 }
